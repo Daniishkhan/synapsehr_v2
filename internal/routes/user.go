@@ -31,3 +31,7 @@ func Home(c *fiber.Ctx) error {
 	c.Set("Content-Type", "text/html")
 	return views.Hello("Danish").Render(c.Context(), c.Response().BodyWriter())
 }
+
+func Greet(c *fiber.Ctx) error {
+	return c.SendString("<p class='text-green-600'>Hello from the server!</p>")
+}

@@ -12,11 +12,9 @@ func main() {
 	app := fiber.New()
 	app.Use(logger.New())
 	app.Use(cors.New())
-
 	app.Static("/home", "./public")
 
-	app.Get("/user", routes.GetUser)
-	app.Post("/user", routes.CreateUser)
-	app.Get("/", routes.Home)
+	routes.SetupRoutes(app)
+
 	app.Listen(":8080")
 }
